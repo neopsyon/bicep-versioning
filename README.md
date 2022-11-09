@@ -1,4 +1,4 @@
-# Bicep-versioning
+# Bicep Versioning
 *The Framework used to version the Bicep modules*
 
 ![Bicep](.img/bicep.jpeg)  
