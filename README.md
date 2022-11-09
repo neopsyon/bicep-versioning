@@ -1,6 +1,8 @@
 # Bicep-versioning
 *Repository containing the Framework used to version the bicep modules*
 
+![Bicep](.img/bicep.jpeg)  
+
 ## Disclaimer  
 *The content of this repository is used for educational purposes ONLY, and it does not contain any confidential or pirated information.*  
 *The idea and content are produced by the community.*  
