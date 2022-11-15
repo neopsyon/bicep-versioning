@@ -1,5 +1,5 @@
 # Bicep Versioning Framework
-*The Framework used to version the Bicep modules*
+*The Versioning Framework for the Bicep modules*
 
 ![Heading](.img/heading.jpg)  
 
