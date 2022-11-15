@@ -1,7 +1,7 @@
 # Bicep Versioning Framework
 *The Framework used to version the Bicep modules*
 
-![Heading](.img/heading.jpeg)  
+![Heading](.img/heading.jpg)  
 
 ## Disclaimer  
 *The idea and content in the repository are produced by the community.*  
@@ -9,10 +9,10 @@
 *The programmatic content in this repository might not work in your environment immediately due to some dependencies.*
 
 ## About Bicep
-![About](.img/about.jpg)
+![About](.img/about.jpg)  
 
 ## What do we aim for?
-![About](.img/about.jpg)
+![About](.img/aim.jpg)  
 
 ## How does it work?
 ![Flow](.img/flow.jpg)  
