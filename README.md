@@ -18,7 +18,7 @@ First, we will install the Bicep Framework within the repository
 ```powershell
 & ./Install-BicepVersionFramework.ps1 -GitPath yourRepositoryPath
 ```
-Next, install the commitlint, you can follow the guide from https://github.com/conventional-changelog/commitlint  
+Next, install the [commitlint](https://github.com/conventional-changelog/commitlint)  
 Example for macOS
 ```bash
 npm install --save-dev @commitlint/{config-conventional,cli}"
