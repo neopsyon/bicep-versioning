@@ -12,10 +12,10 @@
 ![About](.img/about.jpg)  
 
 ## What do we aim for?
-![About](.img/aim.jpg)  
+![About](.img/)  
 
 ## How does it work?
-![Flow](.img/flow.jpg)  
+![Flow](.img/)  
 
 ## Installation
 The idea is to install commitlint along with the Bicep versioning framework inside your repository.  
