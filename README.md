@@ -1,16 +1,21 @@
 # Bicep Versioning Framework
 *The Framework used to version the Bicep modules*
 
-![Bicep](.img/bicep.jpeg)  
+![Heading](.img/heading.jpeg)  
 
 ## Disclaimer  
 *The idea and content in the repository are produced by the community.*  
 *The content of this repository is used for educational purposes ONLY, and it does not contain any confidential or pirated information.*  
 *The programmatic content in this repository might not work in your environment immediately due to some dependencies.*
 
+## About Bicep
+![About](.img/about.jpg)
+
 ## What do we aim for?
-*Automated Semantic versioning*  
-*Immutability, consistency & governance*  
+![About](.img/about.jpg)
+
+## How does it work?
+![Flow](.img/flow.jpg)  
 
 ## Installation
 The idea is to install commitlint along with the Bicep versioning framework inside your repository.  
@@ -28,5 +33,3 @@ npx husky install
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
 
-## Framework Flow
-![Flow](.img/bicep-versioning.drawio.png)  
