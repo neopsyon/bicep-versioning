@@ -14,7 +14,7 @@
 
 ## Installation
 The idea is to install commitlint along with the Bicep versioning framework inside your repository.  
-First, we will install the Bicep Framework within the repository
+First, we will install the Bicep Versioning Framework within the repository
 ```powershell
 & ./Install-BicepVersionFramework.ps1 -GitPath yourRepositoryPath
 ```
@@ -28,3 +28,5 @@ npx husky install
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
 
+## Framework Flow
+![Flow](.img/bicep-versioning.drawio.png)  
