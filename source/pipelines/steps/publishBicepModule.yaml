@@ -1,0 +1,46 @@
+parameters:
+  - name: devOpsOrganization
+    type: string
+
+  - name: devOpsProject
+    type: string
+    default: $(SYSTEM_TEAMPROJECT)
+
+  - name: connectedServiceName
+    type: string
+
+  - name: repositoryName
+    type: string
+    default: $(BUILD_REPOSITORY_NAME)
+
+  - name: fileFilterPath
+    type: string
+
+steps:
+  - task: PowerShell@2
+    displayName: Get repository file changes
+    inputs:
+      targetType: filePath
+      filePath: scripts/Get-RepositoryFileChange.ps1
+      arguments: >
+        -DevOpsOrganization ${{ parameters.devOpsOrganization }}
+        -Project ${{ parameters.devOpsProject }}
+        -RepositoryId ${{ parameters.repositoryName }}
+        -AuthToken $(System.AccessToken)
+        -FileFilterPath ${{ parameters.fileFilterPath }}
+      pwsh: true
+
+  - task: AzurePowerShell@5
+    displayName: Publish Bicep modules
+    condition: eq(variables['proceed'], 'true')
+    inputs:
+      azureSubscription: ${{ parameters.connectedServiceName }}
+      ScriptType: FilePath
+      ScriptPath: scripts/Publish-BicepModule.ps1
+      ScriptArguments: >
+        -ACRName 'neopsyon'
+        -FilePath '$(repositoryFileChange)'
+        -VersionIncrement $(versionIncrement)
+        -SubscriptionId '9fcbdb65-78f5-4bd4-8879-26a702b05839'
+      azurePowerShellVersion: LatestVersion
+      pwsh: true

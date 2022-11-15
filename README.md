@@ -1,4 +1,4 @@
-# Bicep Versioning
+# Bicep Versioning Framework
 *The Framework used to version the Bicep modules*
 
 ![Bicep](.img/bicep.jpeg)  
@@ -11,4 +11,20 @@
 ## What do we aim for?
 *Automated Semantic versioning*  
 *Immutability, consistency & governance*  
+
+## Installation
+The idea is to install commitlint along with the Bicep versioning framework inside your repository.  
+First, we will install the Bicep Framework within the repository
+```powershell
+& ./Install-BicepVersionFramework.ps1 -GitPath yourRepositoryPath
+```
+Next, install the commitlint, you can follow the guide from
+Example for macOS
+```bash
+npm install --save-dev @commitlint/{config-conventional,cli}"
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+npm install husky --save-dev
+npx husky install
+npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
+```
 

@@ -1,0 +1,31 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - '*'
+
+pool:
+  vmImage: windows-latest
+
+parameters:
+- name: environment
+  type: string
+  default: prd
+
+- name: fileFilterPath
+  type: string
+  default: /Templates/Bicep/modules/
+
+  
+steps:
+  - checkout: self
+    clean: true
+    persistCredentials: true
+
+  - template: pipelines/steps/publishBicepModule.yaml
+    parameters:
+      devOpsOrganization: neopsyon
+      devOpsProject: azure
+      connectedServiceName: nemanjajovic-azuredevops
+      fileFilterPath: ${{ parameters.fileFilterPath }}
+      

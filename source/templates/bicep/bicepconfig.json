@@ -1,0 +1,10 @@
+{
+    "moduleAliases": {
+      "br": {
+        "neopsyonmodules": {
+            "registry": "neopsyonacr.azurecr.io",
+            "modulePath": "bicep/modules"
+          }    
+      }
+    }
+}
