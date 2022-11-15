@@ -14,9 +14,6 @@
 ## What do we aim for?
 ![Aim](.img/aim.jpg)  
 
-## How does it work?
-![Flow](.img/flow.jpg)  
-
 ## Installation
 The idea is to install commitlint along with the Bicep versioning framework inside your repository.  
 First, we will install the Bicep Versioning Framework within the repository
@@ -32,4 +29,11 @@ npm install husky --save-dev
 npx husky install
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
+
+## How does it work?
+![Flow](.img/flow.jpg)  
+
+#### Author
+![Author](.img/author.jpg)
+
 
