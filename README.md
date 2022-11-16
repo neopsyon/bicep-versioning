@@ -11,7 +11,7 @@
 ## Bicep in the Nutshell
 - Wrapper around ARM
 - Supports Templates & Modules
-- These brings improved scalability, governance, security shift, reusability & more 
+- These bring improved scalability, governance, security shift, reusability & more 
 
 ## What do we aim for?
 - Immutability
@@ -23,7 +23,7 @@
 The idea is to install commitlint along with the Bicep versioning framework inside your repository.  
 First, we will install the Bicep Versioning Framework within the repository
 ```powershell
-& ./Install-BicepVersionFramework.ps1 -GitPath yourRepositoryPath
+& ./Install-BicepVersioningFramework.ps1 -GitPath yourRepositoryPath
 ```
 Next, install the [commitlint](https://github.com/conventional-changelog/commitlint)  
 Example for macOS
@@ -37,8 +37,3 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 
 ## How does it work?
 ![Flow](.img/flow.jpg)  
-
-#### Author
-![Author](.img/author.jpg)
-
-
