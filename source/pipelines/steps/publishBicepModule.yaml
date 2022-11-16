@@ -4,14 +4,18 @@ parameters:
 
   - name: devOpsProject
     type: string
-    default: $(SYSTEM_TEAMPROJECT)
 
   - name: connectedServiceName
     type: string
 
+  - name: subscriptionId
+    type: string
+
+  - name: acrName
+    type: string
+
   - name: repositoryName
     type: string
-    default: $(BUILD_REPOSITORY_NAME)
 
   - name: fileFilterPath
     type: string
@@ -38,9 +42,9 @@ steps:
       ScriptType: FilePath
       ScriptPath: scripts/Publish-BicepModule.ps1
       ScriptArguments: >
-        -ACRName 'neopsyon'
-        -FilePath '$(repositoryFileChange)'
+        -ACRName ${{ parameters.acrName }}
+        -SubscriptionId ${{ parameters.subscriptionId }}
+        -FilePath $(repositoryFileChange)
         -VersionIncrement $(versionIncrement)
-        -SubscriptionId '9fcbdb65-78f5-4bd4-8879-26a702b05839'
       azurePowerShellVersion: LatestVersion
       pwsh: true

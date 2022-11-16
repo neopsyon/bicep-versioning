@@ -8,13 +8,20 @@ pool:
   vmImage: windows-latest
 
 parameters:
-- name: environment
+- name: connectedServiceName
   type: string
-  default: prd
+
+- name: subscriptionId
+  type: string
+
+- name: acrName
+
+variables:
+- name: devOpsOrganization
+  value: $[replace(replace(variables['System.CollectionUri'], 'https://dev.azure.com/ ', ''), '/', '')]
 
 - name: fileFilterPath
-  type: string
-  default: /Templates/Bicep/modules/
+  value: /Templates/Bicep/modules/
 
   
 steps:
@@ -24,8 +31,11 @@ steps:
 
   - template: pipelines/steps/publishBicepModule.yaml
     parameters:
-      devOpsOrganization: neopsyon
-      devOpsProject: azure
-      connectedServiceName: nemanjajovic-azuredevops
-      fileFilterPath: ${{ parameters.fileFilterPath }}
+      devOpsOrganization: $(devOpsOrganization)
+      devOpsProject: $(System.TeamProject)
+      subscriptionId: ${{ parameters.subscriptionId }}
+      acrName: acrName
+      repositoryName: $(Build.Repository.Name)
+      connectedServiceName: ${{ parameters.connectedServiceName }} 
+      fileFilterPath: $(fileFilterPath)
       
