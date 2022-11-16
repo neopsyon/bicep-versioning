@@ -36,8 +36,3 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 
 ## How does it work?
 ![Flow](.img/flow.jpg)  
-
-#### Author
-![Author](.img/author.jpg)
-
-
