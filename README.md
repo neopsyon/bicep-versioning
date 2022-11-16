@@ -8,11 +8,16 @@
 *The content of this repository is used for educational purposes ONLY, and it does not contain any confidential or pirated information.*  
 *The programmatic content in this repository might not work in your environment immediately due to some dependencies.*
 
-## About Bicep
-![About](.img/about.jpg)  
+## Bicep in the Nutshell
+- Wrapper around ARM
+- Supports Templates & Modules
+- These brings improved scalability, governance, security shift, reusability & more 
 
 ## What do we aim for?
-![Aim](.img/aim.jpg)  
+- Immutability
+- Automated Versioning
+- Consistency & Governance
+- Commitlint for conventional commit messages
 
 ## Installation
 The idea is to install commitlint along with the Bicep versioning framework inside your repository.  
