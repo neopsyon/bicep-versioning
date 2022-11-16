@@ -20,12 +20,15 @@
 - Commitlint for conventional commit messages
 
 ## Installation
-The idea is to install commitlint along with the Bicep versioning framework inside your repository.  
-First, we will install the Bicep Versioning Framework within the repository
+The idea is to install commitlint along with the Bicep versioning framework inside your repository, preferrably the repository should be empty.  
+Installation script will copy framework structure to your repository, including Azure pipeline, PowerShell scripts & sample Bicep template & module structure.
+
+
+1. Install the Bicep Versioning Framework within the repository
 ```powershell
 & ./Install-BicepVersioningFramework.ps1 -GitPath yourRepositoryPath
 ```
-Next, install the [commitlint](https://github.com/conventional-changelog/commitlint)  for your platform, the example for macOS  
+2. Install the [commitlint](https://github.com/conventional-changelog/commitlint)  for your platform, the example for macOS  
 ```bash
 npm install --save-dev @commitlint/{config-conventional,cli}
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
