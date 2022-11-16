@@ -1,8 +1,12 @@
 trigger:
   batch: true
+  paths:
+    include:
+      - templates/bicep/modules/*.bicep
   branches:
     include:
-      - '*'
+      - main
+      - master
 
 pool:
   vmImage: windows-latest
@@ -19,11 +23,7 @@ parameters:
 
 variables:
 - name: devOpsOrganization
-  value: $[replace(replace(variables['System.CollectionUri'], 'https://dev.azure.com/ ', ''), '/', '')]
-
-- name: fileFilterPath
-  value: /Templates/Bicep/modules/
-
+  value: $[replace(replace(variables['System.CollectionUri'], 'https://dev.azure.com/', ''), '/', '')]
   
 steps:
   - checkout: self
@@ -38,5 +38,4 @@ steps:
       acrName: ${{ parameters.acrName }}
       repositoryName: $(Build.Repository.Name)
       connectedServiceName: ${{ parameters.connectedServiceName }} 
-      fileFilterPath: $(fileFilterPath)
-      
+      fileFilterPath: /Templates/Bicep/modules/
