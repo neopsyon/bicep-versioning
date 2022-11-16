@@ -17,7 +17,6 @@ param (
     [string]$FileFilterPath
 )
 begin {
-    $ErrorActionPreference = 'Stop'
     $encryptedPat = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($AuthToken)"))
     $token = @{Authorization = 'Basic ' + $encryptedPat }
     $latestCommitUri = 'https://dev.azure.com/{0}/{1}/_apis/git/repositories/{2}/commits?searchCriteria.$top=1&api-version=6.0' -f $DevOpsOrganization, $Project, $RepositoryId
@@ -35,6 +34,9 @@ process {
             }
             'feat!*' {
                 $versionIncrement = 'MAJOR'
+            }
+            Default {
+                $versionIncrement = $null
             }
         }
         if (-not [string]::IsNullOrWhiteSpace($versionIncrement)) {

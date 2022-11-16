@@ -15,6 +15,7 @@ parameters:
   type: string
 
 - name: acrName
+  type: string
 
 variables:
 - name: devOpsOrganization
@@ -34,7 +35,7 @@ steps:
       devOpsOrganization: $(devOpsOrganization)
       devOpsProject: $(System.TeamProject)
       subscriptionId: ${{ parameters.subscriptionId }}
-      acrName: acrName
+      acrName: ${{ parameters.acrName }}
       repositoryName: $(Build.Repository.Name)
       connectedServiceName: ${{ parameters.connectedServiceName }} 
       fileFilterPath: $(fileFilterPath)
