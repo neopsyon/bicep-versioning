@@ -23,7 +23,7 @@
 The idea is to install commitlint along with the Bicep versioning framework inside your repository.  
 First, we will install the Bicep Versioning Framework within the repository
 ```powershell
-& ./Install-BicepVersionFramework.ps1 -GitPath yourRepositoryPath
+& ./Install-BicepVersioningFramework.ps1 -GitPath yourRepositoryPath
 ```
 Next, install the [commitlint](https://github.com/conventional-changelog/commitlint)  for your platform, example for macOS  
 ```bash
