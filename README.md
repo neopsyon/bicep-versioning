@@ -11,7 +11,7 @@
 ## Bicep in the Nutshell
 - Wrapper around ARM
 - Supports Templates & Modules
-- These brings improved scalability, governance, security shift, reusability & more 
+- These bring improved scalability, governance, security shift, reusability & more 
 
 ## What do we aim for?
 - Immutability
@@ -35,4 +35,4 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
 
 ## How does it work?
-![Flow](.img/flow.jpg)  
+![Flow](.img/flow.jpg)
