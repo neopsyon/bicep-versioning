@@ -26,4 +26,4 @@ resource appServicePlanResource 'Microsoft.Web/serverfarms@2018-11-01' = {
   }
 }
 
-output appServicePlanResourceId string = appServicePlanResource.id //changecommentt
+output appServicePlanResourceId string = appServicePlanResource.id

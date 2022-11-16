@@ -22,6 +22,5 @@ param (
 )
 process {
     $ErrorActionPreference = 'Stop'
-    Copy-Item -Path $PSScriptRoot\source\* -Destination $GitPath -Recurse -Force
-    
+    Copy-Item -Path $PSScriptRoot\source\* -Destination $GitPath -Exclude  $PSScriptRoot\source\.git\ -Recurse -Force
 }

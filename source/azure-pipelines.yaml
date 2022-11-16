@@ -1,21 +1,29 @@
 trigger:
   batch: true
+  paths:
+    include:
+      - templates/bicep/modules/*.bicep
   branches:
     include:
-      - '*'
+      - main
+      - master
 
 pool:
   vmImage: windows-latest
 
 parameters:
-- name: environment
+- name: connectedServiceName
   type: string
-  default: prd
 
-- name: fileFilterPath
+- name: subscriptionId
   type: string
-  default: /Templates/Bicep/modules/
 
+- name: acrName
+  type: string
+
+variables:
+- name: devOpsOrganization
+  value: $[replace(replace(variables['System.CollectionUri'], 'https://dev.azure.com/', ''), '/', '')]
   
 steps:
   - checkout: self
@@ -24,8 +32,10 @@ steps:
 
   - template: pipelines/steps/publishBicepModule.yaml
     parameters:
-      devOpsOrganization: neopsyon
-      devOpsProject: azure
-      connectedServiceName: nemanjajovic-azuredevops
-      fileFilterPath: ${{ parameters.fileFilterPath }}
-      
+      devOpsOrganization: $(devOpsOrganization)
+      devOpsProject: $(System.TeamProject)
+      subscriptionId: ${{ parameters.subscriptionId }}
+      acrName: ${{ parameters.acrName }}
+      repositoryName: $(Build.Repository.Name)
+      connectedServiceName: ${{ parameters.connectedServiceName }} 
+      fileFilterPath: /Templates/Bicep/modules/

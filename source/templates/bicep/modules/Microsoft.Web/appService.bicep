@@ -35,4 +35,4 @@ resource appServiceResource 'Microsoft.Web/sites@2018-11-01' = {
   dependsOn: []
 }
 
-output appServiceResourceId string = appServiceResource.id //commentt
+output appServiceResourceId string = appServiceResource.id

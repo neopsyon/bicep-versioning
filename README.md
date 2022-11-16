@@ -25,8 +25,7 @@ First, we will install the Bicep Versioning Framework within the repository
 ```powershell
 & ./Install-BicepVersioningFramework.ps1 -GitPath yourRepositoryPath
 ```
-Next, install the [commitlint](https://github.com/conventional-changelog/commitlint)  
-Example for macOS
+Next, install the [commitlint](https://github.com/conventional-changelog/commitlint)  for your platform, the example for macOS  
 ```bash
 npm install --save-dev @commitlint/{config-conventional,cli}"
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
@@ -36,4 +35,4 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
 
 ## How does it work?
-![Flow](.img/flow.jpg)  
+![Flow](.img/flow.jpg)
