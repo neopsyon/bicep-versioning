@@ -27,9 +27,10 @@ First, we will install the Bicep Versioning Framework within the repository
 ```
 Next, install the [commitlint](https://github.com/conventional-changelog/commitlint)  for your platform, the example for macOS  
 ```bash
-npm install --save-dev @commitlint/{config-conventional,cli}"
+npm install --save-dev @commitlint/{config-conventional,cli}
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
 npm install husky --save-dev
+# Navigate to your repository
 npx husky install
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
