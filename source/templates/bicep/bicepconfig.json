@@ -1,8 +1,8 @@
 {
     "moduleAliases": {
       "br": {
-        "neopsyonmodules": {
-            "registry": "neopsyonacr.azurecr.io",
+        "myModules": {
+            "registry": "repository.azurecr.io",
             "modulePath": "bicep/modules"
           }    
       }
