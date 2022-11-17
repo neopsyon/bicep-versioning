@@ -31,10 +31,10 @@ The installation script will copy the framework structure to your repository, in
 ```
 2. **Install the [commitlint](https://github.com/conventional-changelog/commitlint)  for your platform, the example for macOS**  
 ```bash
+# Navigate to your repository
 npm install --save-dev @commitlint/{config-conventional,cli}
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
 npm install husky --save-dev
-# Navigate to your repository
 npx husky install
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```  
@@ -47,7 +47,9 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 - The **watched** directory for bicep modules defaults to **templates/bicep/modules**
 - Change this directory by configuring the **trigger** & the pipeline variable: **fileFilterPath** 
 - Add a desirable directory structure under the **watched** directory, there is a sample of **Microsoft.Web** as a starter, and two bicep modules within.  
-- Add & edit bicep modules while following commitlint syntax, see more down.
+- Add & edit bicep modules while following commitlint syntax, see more down.  
+- Edit **bicepconfig.json** to reflect the proper target of your repository, to leverage modules from ACR.
+
 
 
 ## How does it work?
@@ -70,7 +72,7 @@ git commit -m 'fix: lets increment the patch version'
 
     - It will fetch the latest version for all changed modules within the **commit** / **watched** directory.
     - It will use the **decided version increment** to update all files that changed.
-        - In case that module is being published for a first time, it will receive version **1.0.0**
+        - In case that module is being published for the first time, it will receive version **1.0.0**
 
 
 ## How is Commitlint leveraged
