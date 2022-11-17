@@ -71,4 +71,4 @@ Based on the commit message, the framework will know how to increment the versio
 > Example 4: git commit -m 'feat!: This message will increment a major version for all changed module files'  
 
 
-![Flow](.img/flow.jpg)
+![Flow](.img/flow.jpg)  
