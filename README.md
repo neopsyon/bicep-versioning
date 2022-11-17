@@ -58,7 +58,20 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 git add templates/bicep/modules/Microsoft.Web/appService.bicep  
 git commit -m 'fix: lets increment the patch version'  
 ```
--  
+- Once the file in the **watched** directory is changed, the pipeline will kick off.  
+- **The pipeline will perform the following steps**
+    - Fetch the latest commit from the repository along with its metadata
+    - Check if the commit message starts with **feat!:**, **feat:** or **fix:**
+    - If so, it will map the start of the commit message to the version increment  
+
+        - > **feat!:** corresponds to **MAJOR**
+        - > **feat:** corresponds to **MINOR**
+        - > **fix:** corresponds to **PATCH**
+
+    - It will fetch the latest version for all changed modules within the **commit** / **watched** directory.
+    - It will use the **decided version increment** to update all files that changed.
+        - In case that module is being published for a first time, it will receive version **1.0.0**
+
 
 ## How is Commitlint leveraged
 After the installation, commitlint will force the user to use conventional commit messages.
