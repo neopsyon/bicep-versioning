@@ -18,7 +18,7 @@
 - Automated Versioning
 - Consistency & Governance
 - Commitlint for conventional commit messages
-- Simple usage by 
+- Simple usage by users
 
 ## Installation
 The idea is to install the commitlint along with the Bicep versioning framework inside your repository, preferrably the repository should be empty.  
@@ -40,21 +40,20 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```  
 
 ## Configure framework for your needs
-- You are supposed to fill in three parameters for the pipeline to work, you can change **azure-pipelines.yaml** to achieve this, and you can further extend the framework with the use of variable groups to pass the below parameter conditionally per environment.  
-    - **connectedServiceName**
-    - **subscriptionId**
-    - **acrName**
-- The watched directory for bicep modules default to: **templates/bicep/modules**
-- You can change this directory by configuring the pipeline variable: **fileFilterPath**
+- Fill in three parameters for the pipeline to work, you can change **azure-pipelines.yaml** to achieve this, and you can further extend the framework with the use of variable groups to pass the below parameter conditionally per environment.  
+    - **connectedServiceName** - Name of the Azure DevOps Service Connection
+    - **subscriptionId** - Subscription ID where your Azure Container Registry resides
+    - **acrName** - Unique name of your ACR without ACR suffix, example: **neopsyon**
+- The **watched** directory for bicep modules defaults to **templates/bicep/modules**
+- Change this directory by configuring the **trigger** & the pipeline variable: **fileFilterPath** 
+- Add a desirable directory structure under the **watched** directory, there is a sample of **Microsoft.Web** as a starter, and two bicep modules within.  
+- Add & edit bicep modules while following commitlint syntax, see more down.
 
 
 ## How does it work?
 - After installation of the framework, the user has the pre-set framework inside the repository.  
-- The framework is configured to watch the files inside the **templates/bicep/modules**  
-- User can configure watched directory by changing the 
-- The user is supposed to make a change to one of the files and use the conventional commit message to tell the framework how the version should be incremented, commit example below
-- The user makes a change in a file(s) within **templates/bicep/modules**  
-- The user can add different directory structures under **templates/bicep/modules**  , also the 
+- The framework is configured to watch the files inside the **templates/bicep/modules** by default.  
+- The user is supposed to make a change to one of the files and use the conventional commit message to tell the framework how the version should be incremented
 ```bash
 git add templates/bicep/modules/Microsoft.Web/appService.bicep  
 git commit -m 'fix: lets increment the patch version'  
