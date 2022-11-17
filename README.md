@@ -39,13 +39,27 @@ npx husky install
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```  
 
+## Configure framework for your needs
+- You are supposed to fill in three parameters for the pipeline to work, you can change **azure-pipelines.yaml** to achieve this, and you can further extend the framework with the use of variable groups to pass the below parameter conditionally per environment.  
+    - **connectedServiceName**
+    - **subscriptionId**
+    - **acrName**
+- The watched directory for bicep modules default to: **templates/bicep/modules**
+- You can change this directory by configuring the pipeline variable: **fileFilterPath**
+
+
 ## How does it work?
-After installation of the framework, the user has the pre-set framework inside the repository.  
-The framework is configured to watch the files inside the **templates/bicep/modules**
-The user is supposed to make a change to one of the files and use the conventional commit message to tell the framework how the version should be incremented, commit example below
-> The user makes a change in file within templates/bicep/modules  
-> git add templates/bicep/modules/Microsoft.Web/appService.bicep  
-> git commit -m 'fix: lets increment the patch version'  
+- After installation of the framework, the user has the pre-set framework inside the repository.  
+- The framework is configured to watch the files inside the **templates/bicep/modules**  
+- User can configure watched directory by changing the 
+- The user is supposed to make a change to one of the files and use the conventional commit message to tell the framework how the version should be incremented, commit example below
+- The user makes a change in a file(s) within **templates/bicep/modules**  
+- The user can add different directory structures under **templates/bicep/modules**  , also the 
+```bash
+git add templates/bicep/modules/Microsoft.Web/appService.bicep  
+git commit -m 'fix: lets increment the patch version'  
+```
+- 
 
 ## How is Commitlint leveraged
 After the installation, commitlint will force the user to use conventional commit messages.
@@ -55,7 +69,7 @@ Based on the commit message, the framework will know how to increment the versio
 > Example 1: git commit -m 'ci: This is a CI commit message' # CI will happen, modules are not versioned  
 > Example 2: git commit -m 'fix: This message will increment a patch version for all changed module files'  
 > Example 3: git commit -m 'feat: This message will increment a minor version for all changed module files'  
-> Example 4: git commit -m 'feat!: This message will increment a minor version for all changed module files'  
+> Example 4: git commit -m 'feat!: This message will increment a major version for all changed module files'  
 
 
-![Flow](.img/flow.jpg)w
+![Flow](.img/flow.jpg)
