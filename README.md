@@ -58,7 +58,7 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 git add templates/bicep/modules/Microsoft.Web/appService.bicep  
 git commit -m 'fix: lets increment the patch version'  
 ```
-- 
+-  
 
 ## How is Commitlint leveraged
 After the installation, commitlint will force the user to use conventional commit messages.
