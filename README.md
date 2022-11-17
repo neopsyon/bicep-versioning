@@ -21,7 +21,7 @@
     - Simple usage by 
 
     ## Installation
-    The idea is to install the commitlint along with the Bicep versioning framework inside your repository, preferrably the repository should be empty.  
+    The idea is to install the commitlint along with the Bicep versioning framework inside your repository, preferably the repository should be empty.  
     The installation script will copy the framework structure to your repository, including the Azure pipeline, PowerShell scripts & sample Bicep template & module structure.
 
 
@@ -43,9 +43,9 @@
     After installation of the framework, the user has the pre-set framework inside the repository.  
     The framework is configured to watch the files inside the **templates/bicep/modules**
     The user is supposed to make a change to one of the files and use the conventional commit message to tell the framework how the version should be incremented, commit example below
-    > The user makes a change in file within templates/bicep/modules  
+    > The user makes a change in a file within templates/bicep/modules  
     > git add templates/bicep/modules/Microsoft.Web/appService.bicep  
-    > git commit -m 'fix: lets increment the patch version'  
+    > git commit -m 'fix: let's increment the patch version'  
 
     ## How is Commitlint leveraged
     After the installation, commitlint will force the user to use conventional commit messages.
