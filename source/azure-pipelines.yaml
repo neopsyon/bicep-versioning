@@ -37,8 +37,8 @@ steps:
     parameters:
       devOpsOrganization: $(devOpsOrganization)
       devOpsProject: $(System.TeamProject)
+      connectedServiceName: ${{ parameters.connectedServiceName }} 
       subscriptionId: ${{ parameters.subscriptionId }}
       acrName: ${{ parameters.acrName }}
       repositoryName: $(Build.Repository.Name)
-      connectedServiceName: ${{ parameters.connectedServiceName }} 
       fileFilterPath: $(fileFilterPath)
