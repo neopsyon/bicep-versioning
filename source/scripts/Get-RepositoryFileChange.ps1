@@ -1,4 +1,34 @@
 [CmdletBinding()]
+<#
+.SYNOPSIS
+Queries Azure DevOps to get the latest commit message, checks if the commit message contains a version increment syntax, if yes, it will query all files within the filter path that changed in the last commit, and returns the file path along with proceed parameter for the next pipeline step.
+If the commit message does not contain a version increment matching fix: , feat: , or feat! , the function will not pass proceed parameter to the next pipeline step and pipeline will stop.
+
+.DESCRIPTION
+Queries Azure DevOps to get the latest commit message, and based on the mssage decides if it will check for changes files in last commit and proceed, or stop the piepline.
+
+.PARAMETER DevOpsOrganization
+The name of the Azure DevOps organization where the Bicep Framework repository is located.
+
+.PARAMETER AuthToken
+The Azure DevOps personal access token used for API calls, to get the latest commit message & changes.
+
+.PARAMETER Project
+The name of the Azure DevOps project where the Bicep Framework repository is located.
+
+.PARAMETER RepositoryId
+The name of the Azure DevOps repository where the Bicep Framework repository is located.
+
+.PARAMETER FileFilterPath
+The path to the file(s) to filter within the API call, while retrieving the latest commit message & changes.
+Only the files within the local repository that match the filter will be processed.
+
+.EXAMPLE
+Get-RepositoryFileChange -DevOpsOrganization "myorg" -AuthToken xxxxxxxxxxx -Project "myproject" -RepositoryId "myrepo" -FileFilterPath "templates/bicep/modules"
+
+.NOTES
+Author: Neopsyon
+#>
 param (
     [Parameter(Mandatory)]
     [Alias('Organization')]
