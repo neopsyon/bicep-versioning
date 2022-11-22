@@ -9,7 +9,7 @@ Publishes a Bicep module to the Azure Container Registry.
 .PARAMETER ACRName
 The name of the Azure Container Registry where the Bicep module will be published.
 
-.PARAMETER ACRResourceGroup
+.PARAMETER ResourceGroupName
 The name of the Azure Resource Group where the Azure Container Registry is located.
 
 .PARAMETER SubscriptionId
@@ -36,12 +36,11 @@ Author: Neopsyon
 #>
 param (
     [Parameter(Mandatory)]
-    [Alias('ContainerRegistry')]
     [string]$ACRName,
 
     [Parameter(Mandatory)]
     [Alias('ResourceGroup')]
-    [string]$ACRResourceGroupName,
+    [string]$ResourceGroupName,
 
     [string]$SubscriptionId,
 
