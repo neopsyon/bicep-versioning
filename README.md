@@ -4,9 +4,10 @@
 ![Heading](.img/heading.jpg)  
 
 ## Disclaimer  
-*The idea and content in the repository are produced by the community.*  
-*The content of this repository is used for educational purposes ONLY, and it does not contain any confidential or pirated information.*  
-*The programmatic content in this repository might not work in your environment immediately due to some dependencies.*
+ 
+- The content of this repository is used for educational purposes ONLY, and it does not contain any confidential or pirated information.  
+- The programmatic content in this repository might not work in your environment immediately due to some dependencies.  
+- The idea and content in the repository are produced by the community.  
 
 ## Bicep in the Nutshell
 - Wrapper around ARM
@@ -19,11 +20,10 @@
 - **User-friendly framework**
 - **Consistency & Governance**
 - **The Commitlint for conventional commit messages**
-- **Simple usage by users**
 
 ## Step 1: Installation
-The idea is to install the Bicep versioning framework inside the repository where you want to host your IaC, preferably the repository should be empty.  
-The installation script will copy the framework structure to your repository, including the Azure pipeline, PowerShell scripts & sample Bicep template & module structure.  
+- The idea is to install the Bicep versioning framework inside the repository where you want to host your IaC, preferably the repository should be empty.  
+- The installation script will copy the framework structure to your repository, including the Azure pipeline, PowerShell scripts & sample Bicep template & module structure.  
 
 1. **Install the Bicep Versioning Framework within the repository**
 ```powershell
