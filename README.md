@@ -4,9 +4,10 @@
 ![Heading](.img/heading.jpg)  
 
 ## Disclaimer  
-*The idea and content in the repository are produced by the community.*  
-*The content of this repository is used for educational purposes ONLY, and it does not contain any confidential or pirated information.*  
-*The programmatic content in this repository might not work in your environment immediately due to some dependencies.*
+ 
+- **The content of this repository is used for educational purposes ONLY, and it does not contain any confidential or pirated information.**  
+- **The programmatic content in this repository might not work in your environment immediately due to some dependencies.**  
+- **The idea and content in the repository are produced by the community.**  
 
 ## Bicep in the Nutshell
 - Wrapper around ARM
