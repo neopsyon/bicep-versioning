@@ -14,16 +14,16 @@
 - These bring improved scalability, governance, security shift, reusability & more 
 
 ## What do we aim for?
-- Immutability
-- Automated Versioning
-- Consistency & Governance
-- Commitlint for conventional commit messages
-- Simple usage by users
+- **Immutability**
+- **Automated Versioning**
+- **User-friendly framework**
+- **Consistency & Governance**
+- **The Commitlint for conventional commit messages**
+- **Simple usage by users**
 
-## Installation
-The idea is to install the commitlint along with the Bicep versioning framework inside your repository, preferrably the repository should be empty.  
-The installation script will copy the framework structure to your repository, including the Azure pipeline, PowerShell scripts & sample Bicep template & module structure.
-
+## Step 1: Installation
+The idea is to install the Bicep versioning framework inside the repository where you want to host your IaC, preferably the repository should be empty.  
+The installation script will copy the framework structure to your repository, including the Azure pipeline, PowerShell scripts & sample Bicep template & module structure.  
 
 1. **Install the Bicep Versioning Framework within the repository**
 ```powershell
@@ -39,18 +39,18 @@ npx husky install
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```  
 
-## Configure framework for your needs
+## Step 2: Configure the framework for your needs
 - Fill in three parameters for the pipeline to work, you can change **azure-pipelines.yaml** to achieve this, and you can further extend the framework with the use of variable groups to pass the below parameter conditionally per environment.  
     - **connectedServiceName** - Name of the Azure DevOps Service Connection
     - **subscriptionId** - Subscription ID where your Azure Container Registry resides
-    - **acrName** - Unique name of your ACR without ACR suffix, example: **neopsyon**
+    - **acrName** - Unique name of your ACR without ACR suffix, the example: **neopsyon**
+    - **acrResourceGroupName** - Resource Group name where your Azure Container Registry resides
 - The **watched** directory for bicep modules defaults to **templates/bicep/modules**
 - Change this directory by configuring the **trigger** & the pipeline variable: **fileFilterPath** 
 - Add a desirable directory structure under the **watched** directory, there is a sample of **Microsoft.Web** as a starter, and two bicep modules within.  
-- Add & edit bicep modules while following commitlint syntax, see more down.  
+- Add & edit bicep modules while following the commitlint syntax, see more down.  
 - Edit **bicepconfig.json** to reflect the proper target of your repository, to leverage modules from ACR.
-
-
+- Once you have performed the above steps, it's time to push changes to your repository & authorize the pipeline.  
 
 ## How does it work?
 - After installation of the framework, the user has the pre-set framework inside the repository.  
@@ -76,7 +76,7 @@ git commit -m 'fix: lets increment the patch version'
 
 
 ## How is Commitlint leveraged
-After the installation, commitlint will force the user to use conventional commit messages.
+After the installation, the commitlint will force the user to use conventional commit messages.
 Based on the commit message, the framework will know how to increment the version increment of the changed Bicep files.  
 
 **Example commits** 

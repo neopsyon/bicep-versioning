@@ -21,6 +21,9 @@ parameters:
 - name: acrName
   type: string
 
+- name: acrResourceGroupName
+  type: string
+
 variables:
 - name: devOpsOrganization
   value: $[replace(replace(variables['System.CollectionUri'], 'https://dev.azure.com/', ''), '/', '')]
@@ -40,5 +43,6 @@ steps:
       connectedServiceName: ${{ parameters.connectedServiceName }} 
       subscriptionId: ${{ parameters.subscriptionId }}
       acrName: ${{ parameters.acrName }}
+      acrResourceGroupName: ${{ parameters.acrResourceGroupName }}
       repositoryName: $(Build.Repository.Name)
       fileFilterPath: $(fileFilterPath)
