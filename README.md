@@ -21,8 +21,8 @@
 - **The Commitlint for conventional commit messages**
 
 ## Step 1: Installation
-The idea is to install the Bicep versioning framework inside the repository where you want to host your IaC, preferably the repository should be empty.  
-The installation script will copy the framework structure to your repository, including the Azure pipeline, PowerShell scripts & sample Bicep template & module structure.  
+- The idea is to install the Bicep versioning framework inside the repository where you want to host your IaC, preferably the repository should be empty.  
+- The installation script will copy the framework structure to your repository, including the Azure pipeline, PowerShell scripts & sample Bicep template & module structure.  
 
 1. **Install the Bicep Versioning Framework within the repository**
 ```powershell
