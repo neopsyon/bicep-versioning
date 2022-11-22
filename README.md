@@ -48,7 +48,7 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 - The **watched** directory for bicep modules defaults to **templates/bicep/modules**
 - Change this directory by configuring the **trigger** & the pipeline variable: **fileFilterPath** 
 - Add a desirable directory structure under the **watched** directory, there is a sample of **Microsoft.Web** as a starter, and two bicep modules within.  
-- Add & edit bicep modules while following the commitlint syntax, see more down.  
+- Add & edit bicep modules while following the **Commitlint** syntax, see more down.  
 - Edit **bicepconfig.json** to reflect the proper target of your repository, to leverage modules from ACR.
 - Once you have performed the above steps, it's time to push changes to your repository & authorize the pipeline.  
 
@@ -76,7 +76,7 @@ git commit -m 'fix: lets increment the patch version'
 
 
 ## How is Commitlint leveraged
-After the installation, the commitlint will force the user to use conventional commit messages.
+After the installation, the **Commitlint** will force the user to use conventional commit messages.
 Based on the commit message, the framework will know how to increment the version increment of the changed Bicep files.  
 
 **Example commits** 
