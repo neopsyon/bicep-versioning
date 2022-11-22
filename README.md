@@ -19,7 +19,6 @@
 - **User-friendly framework**
 - **Consistency & Governance**
 - **The Commitlint for conventional commit messages**
-- **Simple usage by users**
 
 ## Step 1: Installation
 The idea is to install the Bicep versioning framework inside the repository where you want to host your IaC, preferably the repository should be empty.  
