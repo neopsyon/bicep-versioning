@@ -40,7 +40,7 @@ param (
     [string]$ACRName,
 
     [Parameter(Mandatory)]
-    [Alias('ContainerRegistry')]
+    [Alias('ResourceGroup')]
     [string]$ACRResourceGroupName,
 
     [string]$SubscriptionId,
