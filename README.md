@@ -9,7 +9,7 @@
 - The programmatic content in this repository might not work in your environment immediately due to some dependencies.  
 - The idea and content in the repository are produced by the community.  
 
-## The user interest in this Framework
+## User motivation
 > I as a DevOps engineer want to:
 - Install the Bicep Versioning Framework inside my repository easily by running a script.
 - Be able to version Bicep modules by using the commit message header & filing a few pipeline parameters.
