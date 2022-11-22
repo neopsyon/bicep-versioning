@@ -7,7 +7,7 @@ Installs the Bicep Versioning components, Azure Pipeline, PowerShell scripts and
 Installs the Bicep Versioning components.
 
 .PARAMETER GitPath
-The path to the Git repository.
+The path to the Git repository where you want to install the Bicep Versioning Framework.
 
 .EXAMPLE
 Install-BicepVersioningFramework -GitPath "C:\Git\MyRepo"

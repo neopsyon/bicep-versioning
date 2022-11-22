@@ -5,6 +5,10 @@ param (
     [string]$ACRName,
 
     [Parameter(Mandatory)]
+    [Alias('ContainerRegistry')]
+    [string]$ACRResourceGroupName,
+
+    [Parameter(Mandatory)]
     [string[]]$FilePath,
 
     [Parameter(Mandatory)]
@@ -20,9 +24,12 @@ process {
     if ($SubscriptionId) {
         [void](Set-AzContext -SubscriptionId $SubscriptionId)
     }
-    $containerRegistry = Get-AzContainerRegistry $ACRName
+    $containerRegistry = Get-AzContainerRegistry -Name $ACRName -ResourceGroupName $ACRResourceGroupName
+    if ([string]::IsNullOrWhiteSpace($containerRegistry)) {
+        throw 'Container registry not found.'
+    }
     foreach ($file in $filePath.split(' ')) {
-        $bicepFilePath = '{0}/{1}' -f (pwd).path, $file
+        $bicepFilePath = '{0}/{1}' -f (Get-Location).path, $file
         if ($false -eq (Test-Path $bicepFilePath)) {
             throw ('Cannot find bicep file {0}' -f $bicepFilePath)
         }
