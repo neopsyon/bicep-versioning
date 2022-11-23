@@ -14,13 +14,16 @@ parameters:
   - name: acrName
     type: string
 
-  - name: acrResourceGroupName
+  - name: resourceGroupName
     type: string
 
   - name: repositoryName
     type: string
 
   - name: fileFilterPath
+    type: string
+
+  - name: publishBicepPath
     type: string
 
 steps:
@@ -46,9 +49,10 @@ steps:
       ScriptPath: scripts/Publish-BicepModule.ps1
       ScriptArguments: >
         -ACRName ${{ parameters.acrName }}
-        -ACRResourceGroupName ${{ parameters.acrResourceGroupName }}
+        -ResourceGroupName ${{ parameters.resourceGroupName }}
         -SubscriptionId ${{ parameters.subscriptionId }}
-        -FilePath $(repositoryFileChange)
+        -FilePath "$(repositoryFileChange)"
         -VersionIncrement $(versionIncrement)
+        -PublishBicepPath ${{ parameters.publishBicepPath }}
       azurePowerShellVersion: LatestVersion
       pwsh: true

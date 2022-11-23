@@ -2,7 +2,7 @@ trigger:
   batch: true
   paths:
     include:
-      - templates/bicep/modules/*
+      - templates/bicep/modules/**/*.bicep
   branches:
     include:
       - main
@@ -21,7 +21,7 @@ parameters:
 - name: acrName
   type: string
 
-- name: acrResourceGroupName
+- name: resourceGroupName
   type: string
 
 variables:
@@ -30,6 +30,9 @@ variables:
 
 - name: fileFilterPath
   value: /Templates/Bicep/modules/
+
+- name: publishBicepPath
+  value: 'bicep/modules'
   
 steps:
   - checkout: self
@@ -43,6 +46,7 @@ steps:
       connectedServiceName: ${{ parameters.connectedServiceName }} 
       subscriptionId: ${{ parameters.subscriptionId }}
       acrName: ${{ parameters.acrName }}
-      acrResourceGroupName: ${{ parameters.acrResourceGroupName }}
+      ResourceGroupName: ${{ parameters.resourceGroupName }}
       repositoryName: $(Build.Repository.Name)
       fileFilterPath: $(fileFilterPath)
+      publishBicepPath: $(publishBicepPath)

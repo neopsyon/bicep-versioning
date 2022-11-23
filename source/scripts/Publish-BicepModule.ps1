@@ -22,14 +22,14 @@ The ore or more paths to the Bicep module file(s).
 The version increment to apply to the Bicep module by following Semantic Versioning.
 If the module does not exist in the Azure Container Registry, the version will be set to 1.0.0
 
-.PARAMETER PublishPath
+.PARAMETER PublishBicepPath
 The base path where the Bicep module will be published within the Azure Container Registry repositories.
 
 .EXAMPLE
 Publish-BicepModule -ACRName "myacr" -ACRResourceGroup "myrg" -SubscriptionId "00000000-0000-0000-0000-000000000000" -FilePath "C:\Git\MyRepo\source\module.bicep" -VersionIncrement "patch"
 
 .EXAMPLE
-Publish-BicepModule -ACRName "myacr" -ACRResourceGroup "myrg" -SubscriptionId "00000000-0000-0000-0000-000000000000" -FilePath "C:\Git\MyRepo\source\module1.bicep","C:\Git\MyRepo\source\module2.bicep" -VersionIncrement "minor" -PublishPath "modules/bicep"
+Publish-BicepModule -ACRName "myacr" -ACRResourceGroup "myrg" -SubscriptionId "00000000-0000-0000-0000-000000000000" -FilePath "C:\Git\MyRepo\source\module1.bicep","C:\Git\MyRepo\source\module2.bicep" -VersionIncrement "minor" -PublishBicepPath "modules/bicep"
 
 .NOTES
 Author: Neopsyon
@@ -51,14 +51,15 @@ param (
     [ValidateSet('Major','Minor','Patch')]
     [string]$VersionIncrement,
 
-    [string]$PublishPath = 'bicep/modules'
+    [Parameter(Mandatory)]
+    [string]$PublishBicepPath
 )
 process {
     $ErrorActionPreference = 'Stop'
     if ($SubscriptionId) {
         [void](Set-AzContext -SubscriptionId $SubscriptionId)
     }
-    $containerRegistry = Get-AzContainerRegistry -Name $ACRName -ResourceGroupName $ACRResourceGroupName
+    $containerRegistry = Get-AzContainerRegistry -Name $ACRName -ResourceGroupName $ResourceGroupName
     if ([string]::IsNullOrWhiteSpace($containerRegistry)) {
         throw 'Container registry not found.'
     }
@@ -67,7 +68,8 @@ process {
         if ($false -eq (Test-Path $bicepFilePath)) {
             throw ('Cannot find bicep file {0}' -f $bicepFilePath)
         }
-        $repositoryName = ('{0}/{1}' -f $PublishPath, $file.Split('/')[-1].Replace('.bicep', '')).ToLower()
+        $bicepModuleName = ($file.Split('/')[-1]).Replace('.bicep', '')
+        $repositoryName = ('{0}/{1}' -f $PublishBicepPath, $bicepModuleName).ToLower()
         $fetchManifestUri = ($containerRegistry.LoginServer.Split('.')[0])
         $fetchManifest = Get-AzContainerRegistryManifest -RegistryName $fetchManifestUri -RepositoryName $repositoryName -ErrorAction SilentlyContinue
         if ([string]::IsNullOrWhiteSpace($fetchManifest)) {
