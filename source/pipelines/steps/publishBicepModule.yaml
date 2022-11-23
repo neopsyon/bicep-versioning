@@ -23,6 +23,9 @@ parameters:
   - name: fileFilterPath
     type: string
 
+  - name: publishBicepPath
+    type: string
+
 steps:
   - task: PowerShell@2
     displayName: Get repository file changes
@@ -48,7 +51,8 @@ steps:
         -ACRName ${{ parameters.acrName }}
         -ResourceGroupName ${{ parameters.resourceGroupName }}
         -SubscriptionId ${{ parameters.subscriptionId }}
-        -FilePath $(repositoryFileChange)
+        -FilePath "$(repositoryFileChange)"
         -VersionIncrement $(versionIncrement)
+        -PublishBicepPath ${{ parameters.publishBicepPath }}
       azurePowerShellVersion: LatestVersion
       pwsh: true

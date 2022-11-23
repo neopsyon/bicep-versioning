@@ -2,7 +2,7 @@ trigger:
   batch: true
   paths:
     include:
-      - templates/bicep/modules/*
+      - templates/bicep/modules/**/*.bicep
   branches:
     include:
       - main
@@ -30,6 +30,9 @@ variables:
 
 - name: fileFilterPath
   value: /Templates/Bicep/modules/
+
+- name: publishBicepPath
+  value: 'bicep/modules'
   
 steps:
   - checkout: self
@@ -46,3 +49,4 @@ steps:
       ResourceGroupName: ${{ parameters.resourceGroupName }}
       repositoryName: $(Build.Repository.Name)
       fileFilterPath: $(fileFilterPath)
+      publishBicepPath: $(publishBicepPath)
