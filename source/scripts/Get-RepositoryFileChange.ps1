@@ -62,7 +62,7 @@ process {
             'feat:*' {
                 $versionIncrement = 'MINOR'
             }
-            'feat!*' {
+            'feat!:*' {
                 $versionIncrement = 'MAJOR'
             }
             Default {
@@ -92,6 +92,8 @@ process {
                     Write-Host "##vso[task.setvariable variable=repositoryFileChange;]$changeCollection"
                     Write-Host "##vso[task.setvariable variable=versionIncrement;]$versionIncrement"
                     Write-Host "##vso[task.setvariable variable=proceed;]true"
+                    Write-Host "The version increment is $versionIncrement"
+                    Write-Host "The changed file collection is"
                     return($changeCollection | Sort-Object)
                 }
                 else {

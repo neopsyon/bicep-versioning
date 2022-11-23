@@ -55,6 +55,7 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 - The **watched** directory for bicep modules defaults to **templates/bicep/modules**
 - Change this directory by configuring the **trigger** & the pipeline variable: **fileFilterPath** 
 - Add a desirable directory structure under the **watched** directory, there is a sample of **Microsoft.Web** as a starter, and two bicep modules within.  
+- You can edit pipeline variable **publishBicepPath** in order to change path in the ACR where modules will be published.
 - Add & edit bicep modules while following the **Commitlint** syntax, see more down.  
 - Edit **bicepconfig.json** to reflect the proper target of your repository, to leverage modules from ACR.
 - Once you have performed the above steps, it's time to push changes to your repository & authorize the pipeline.  
