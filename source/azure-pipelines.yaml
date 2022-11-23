@@ -2,7 +2,7 @@ trigger:
   batch: true
   paths:
     include:
-      - templates/bicep/modules/*.bicep
+      - templates/bicep/modules/*
   branches:
     include:
       - main

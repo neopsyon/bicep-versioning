@@ -38,7 +38,7 @@
 ```
 2. **Install the [commitlint](https://github.com/conventional-changelog/commitlint)  for your platform, the example for macOS**  
 ```bash
-# Navigate to your repository
+# Navigate to your repository and execute from bash / zsh on macOS
 npm install --save-dev @commitlint/{config-conventional,cli}
 echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
 npm install husky --save-dev
@@ -47,7 +47,7 @@ npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```  
 
 ## Step 2: Configure the framework for your needs
-- Fill in three parameters for the pipeline to work, you can change **azure-pipelines.yaml** to achieve this, and you can further extend the framework with the use of variable groups to pass the below parameter conditionally per environment.  
+- Fill in the four parameters for the pipeline to work, you can change **azure-pipelines.yaml** to achieve this, and you can further extend the framework with the use of variable groups to pass the below parameter conditionally per environment.  
     - **connectedServiceName** - Name of the Azure DevOps Service Connection
     - **subscriptionId** - Subscription ID where your Azure Container Registry resides
     - **acrName** - Unique name of your ACR without ACR suffix, the example: **neopsyon**

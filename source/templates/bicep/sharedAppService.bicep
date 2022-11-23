@@ -9,7 +9,7 @@ param workerSize string
 param workerSizeId string
 param numberOfWorkers string
 
-module appServicePlan 'br/myModules:appserviceplan:v1' = {
+module appServicePlan 'br/myModules:appserviceplan:v1.0.0' = {
   name: 'appServicePlan'
   params: {
     name: appServicePlanName
@@ -22,7 +22,7 @@ module appServicePlan 'br/myModules:appserviceplan:v1' = {
   }
 }
 
-module appService 'br/myModules:appservice:v1' = {
+module appService 'br/myModules:appservice:v1.0.0' = {
   name: 'appService'
   params: {
     appServiceName: appServiceName
