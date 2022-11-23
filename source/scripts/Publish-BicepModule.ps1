@@ -58,7 +58,7 @@ process {
     if ($SubscriptionId) {
         [void](Set-AzContext -SubscriptionId $SubscriptionId)
     }
-    $containerRegistry = Get-AzContainerRegistry -Name $ACRName -ResourceGroupName $ACRResourceGroupName
+    $containerRegistry = Get-AzContainerRegistry -Name $ACRName -ResourceGroupName $ResourceGroupName
     if ([string]::IsNullOrWhiteSpace($containerRegistry)) {
         throw 'Container registry not found.'
     }

@@ -21,7 +21,7 @@ parameters:
 - name: acrName
   type: string
 
-- name: acrResourceGroupName
+- name: resourceGroupName
   type: string
 
 variables:
@@ -43,6 +43,6 @@ steps:
       connectedServiceName: ${{ parameters.connectedServiceName }} 
       subscriptionId: ${{ parameters.subscriptionId }}
       acrName: ${{ parameters.acrName }}
-      acrResourceGroupName: ${{ parameters.acrResourceGroupName }}
+      ResourceGroupName: ${{ parameters.resourceGroupName }}
       repositoryName: $(Build.Repository.Name)
       fileFilterPath: $(fileFilterPath)

@@ -14,7 +14,7 @@ parameters:
   - name: acrName
     type: string
 
-  - name: acrResourceGroupName
+  - name: resourceGroupName
     type: string
 
   - name: repositoryName
@@ -46,7 +46,7 @@ steps:
       ScriptPath: scripts/Publish-BicepModule.ps1
       ScriptArguments: >
         -ACRName ${{ parameters.acrName }}
-        -ACRResourceGroupName ${{ parameters.acrResourceGroupName }}
+        -ResourceGroupName ${{ parameters.resourceGroupName }}
         -SubscriptionId ${{ parameters.subscriptionId }}
         -FilePath $(repositoryFileChange)
         -VersionIncrement $(versionIncrement)
